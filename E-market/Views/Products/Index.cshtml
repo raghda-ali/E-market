@@ -1,0 +1,119 @@
+﻿@model IEnumerable<E_market.Models.Product>
+
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2>Product</h2>
+
+<div>
+    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+    {
+        <input value="Filter" type="submit" />
+        @Html.TextBox("searching")
+    }
+</div>
+<br />
+<button> @Html.ActionLink("ADD", "Create") </button>
+
+
+<br />
+<br />
+<br />
+
+
+<div class="container">
+    <h2 class="text-center">Product List</h2>
+    <br />
+    <br />
+
+    @foreach (var item in Model)
+    {
+        double Price = Convert.ToInt32(item.Price);
+        <div class="col-md-3" style="margin-bottom:25px">
+            <div class="thumbnail">
+                <div class="image">
+                    <a href='@Url.Action("Details", "Products",new { id = item.id })'>
+
+                        <img class="img-responsive" src="~/Uploads/@item.Image" height="350" width="240" />
+                    </a>
+                </div>
+                <div class="caption" style="border-top:3px solid #808080">
+                    <h3><a href="#">@item.Name</a></h3>
+                    <h4>@Price.ToString("F2")EGP</h4>
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
+                    @Html.ActionLink("Details", "Details", new { id = item.id })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<E_market.Models.Product>
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.category_id)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>*@
