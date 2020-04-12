@@ -1,9 +1,7 @@
-﻿@*@model E_market.Models.Product
-    @model E_market.Models.Category*@
-@model E_market.ViewModels.ProductCategoryViewModel
-
-
-@*@model IEnumerable<E_market.ViewModels.ProductCategoryViewModel>*@
+﻿@model E_market.Models.Product
+@*@model E_market.Models.Category*@
+@*@model E_market.ViewModels.ProductCategoryViewModel
+@model IEnumerable<E_market.ViewModels.ProductCategoryViewModel>*@*@
 
 
 @{
@@ -17,20 +15,20 @@
     <hr />
     <div class="dl-horizontal">
 
-        @*@foreach (var item in Model)
-            {*@
+        foreach (var item in Model)
+        {
 
         @*<div style="overflow: hidden;
-            background-color:lightblue">*@
+        background-color:lightblue">*@
         <dd style="/*float:left;*/
                  background-color:lightblue;
                  margin-left:350px;
                  margin-right:350px;
                  text-align:center;
                 padding:5px;">
-            @Html.DisplayFor(model => model.Product.Name)-
-            @Html.DisplayFor(model => model.Product.Price) EGP(
-            @Html.DisplayFor(model => model.Categories)
+            @Html.DisplayFor(model => model.Name)-
+            @Html.DisplayFor(model => model.Price) EGP(
+            @Html.DisplayFor(model => model.category.name)
             )
         </dd>
 
@@ -41,14 +39,14 @@
                   margin-left:400px;
                   margin-bottom:30px;">
 
-            <img src="@Url.Content("~/Uploads/" + Model.Product.Image)" width="300" height="200" class="center" top=100px margin=25px10px display=inline-block />
+            <img src="@Url.Content("~/Uploads/" + Model.Image)" width="300" height="200" class="center" top=100px margin=25px10px display=inline-block />
 
         </div>
 
         <dd style="margin-left:320px;
                  margin-right:350px;
                  text-align:center">
-            @Html.DisplayFor(model => model.Product.Description)
+            @Html.DisplayFor(model => model.Description)
         </dd>
 
 
@@ -58,12 +56,13 @@
                  text-align:center;
                   margin-top:30px;">
 
-            @Html.ActionLink("Update", "Edit", "Product",new { @class = "btn btn-primary" })
-            @Html.ActionLink("Delete", "Delete", "Product",new { @class = "btn btn-primary" })
+
+            @Html.ActionLink("Update", "Edit", "Product", new { id = Model.id }@*new { @class = "btn btn-primary" }*@)
+            @Html.ActionLink("Delete", "Delete", "Product", new { id = Model.id }@*new { @class = "btn btn-primary" }*@)
 
 
         </div>
-
+        }
 
         @*</dl>*@
     </div>
@@ -75,7 +74,7 @@
 
 
 
-
+ </div>
 
 
 
