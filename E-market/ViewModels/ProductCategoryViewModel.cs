@@ -10,5 +10,6 @@ namespace E_market.ViewModels
     {
         public Product Product { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        //public Category Categories { get; set; }
     }
 }

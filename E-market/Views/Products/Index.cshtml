@@ -7,17 +7,24 @@
 <h2>Product</h2>
 
 <div>
+    
     @using (Html.BeginForm("Index", "Products", FormMethod.Get))
     {
         <input value="Filter" type="submit" />
         @Html.TextBox("searching")
-    }
+    }'
 
-  <div style="overflow: hidden;
-             margin-left:400px;">  @Html.ActionLink("ADD", "Create") </div>
-</div>
-<br />
- 
+    </div>
+  
+    <button style="overflow: hidden;
+             margin-left:300px;
+             /*margin-right:350px;*/
+            margin-top:0px;
+            padding-top:0px;
+            background-color:aqua"> 
+        @Html.ActionLink("ADD", "Create") 
+    </button>
+    
 
 
 <br />
