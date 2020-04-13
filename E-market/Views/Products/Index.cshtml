@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<E_market.Models.Product>
-
 @{
     ViewBag.Title = "Product";
 }
@@ -7,24 +6,24 @@
 <h2>Product</h2>
 
 <div>
-    
-    @using (Html.BeginForm("Index", "Products", FormMethod.Get))
+
+    @using (Html.BeginForm("Index", "Product", FormMethod.Get))
     {
         <input value="Filter" type="submit" />
         @Html.TextBox("searching")
     }'
 
-    </div>
-  
-    <button style="overflow: hidden;
+</div>
+
+<button style="overflow: hidden;
              margin-left:300px;
              /*margin-right:350px;*/
             margin-top:0px;
             padding-top:0px;
-            background-color:aqua"> 
-        @Html.ActionLink("ADD", "Create") 
-    </button>
-    
+            background-color:aqua">
+    @Html.ActionLink("ADD", "Create")
+</button>
+
 
 
 <br />
@@ -43,7 +42,7 @@
         <div class="col-md-3" style="margin-bottom:25px">
             <div class="thumbnail">
                 <div class="image">
-                    <a href='@Url.Action("Details", "Products",new { id = item.id })'>
+                    <a href='@Url.Action("Details", "Products",new { id = item.category_id })'>
 
                         <img class="img-responsive" src="~/Uploads/@item.Image" height="350" width="240" />
                     </a>
@@ -52,7 +51,7 @@
                     <h3><a href="#">@item.Name</a></h3>
                     <h4>@Price.ToString("F2")EGP</h4>
                     @*@Html.ActionLink("Edit", "Edit", new { id = item.id }) |*@
-                    @Html.ActionLink("Details", "Details", new { id = item.id })
+                    @Html.ActionLink("Details", "Details", new { id = item.category_id })
                 </div>
             </div>
         </div>
