@@ -1,7 +1,7 @@
 ﻿@model E_market.Models.Product
 @*@model E_market.Models.Category*@
 @*@model E_market.ViewModels.ProductCategoryViewModel
-@model IEnumerable<E_market.ViewModels.ProductCategoryViewModel>*@*@
+@model IEnumerable<E_market.ViewModels.ProductCategoryViewModel>*@
 
 
 @{
@@ -57,8 +57,10 @@
                   margin-top:30px;">
 
 
-            @Html.ActionLink("Update", "Edit", "Product", new { id = Model.id }@*new { @class = "btn btn-primary" }*@)
-            @Html.ActionLink("Delete", "Delete", "Product", new { id = Model.id }@*new { @class = "btn btn-primary" }*@)
+            @*@Html.ActionLink("Update", "Edit", "Product", new { id = Model.id }new { @class = "btn btn-primary" })*@
+            @Html.ActionLink("Edit", "Edit", new { id = Model.id })
+            @Html.ActionLink("Delete", "Delete", new { id = Model.id })
+            @*@Html.ActionLink("Delete", "Delete", "Product", new { id = Model.id }new { @class = "btn btn-primary" })*@
 
 
         </div>
