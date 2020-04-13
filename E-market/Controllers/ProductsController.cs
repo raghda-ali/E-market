@@ -9,7 +9,6 @@ using System.Web.Mvc;
 using E_market.Models;
 using System.IO;
 using E_market.ViewModels;
-using E_market.Models;
 namespace E_market.Controllers
 {
     public class ProductsController : Controller
@@ -17,9 +16,21 @@ namespace E_market.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Products
-        public ActionResult Index()
+        public ActionResult Index(string searching)
         {
-            return View(db.products.ToList());
+            // return View(db.products.ToList());
+            var Products = from s in db.products
+                           select s;
+            if (!String.IsNullOrEmpty(searching))
+            {
+                Products = Products.Where(s => s.category.name.Contains(searching));
+            }
+            return View(Products.ToList());
+        }
+        public IEnumerable<Product> GetProducts()
+        {
+            var Products = db.products.ToList();
+            return Products;
         }
 
         // GET: Products/Details/5
