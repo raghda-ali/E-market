@@ -19,7 +19,7 @@ namespace E_market.Controllers
         public ActionResult Index(string searching)
         {
             // return View(db.products.ToList());
-            var Products = from s in db.products
+            var Products = from s in db.products 
                            select s;
             if (!String.IsNullOrEmpty(searching))
             {
