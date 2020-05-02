@@ -57,8 +57,8 @@ namespace E_market.Controllers
             { Categories = Categories };
 
             return View(pcvm);
-            //return View();
         }
+            //return View();
 
         // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
